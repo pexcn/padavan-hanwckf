@@ -43,7 +43,7 @@ env:
   - build_variant=mt7621-usb targets="JCG-836PRO-5.0 JCG-AC860M-5.0 DIR-882-5.0 A3004NS MSG1500 WR1200JS MI-R3G NEWIFI3 B70"
   global:
   - toolchain_pkg="aarch64_mipsel-linux-uclibc.tar.xz"
-  - toolchain_url="https://github.com/hanwckf/padavan-toolchain/releases/download/v1.1/$toolchain_pkg"
+  - toolchain_url="https://github.com/pexcn/padavan-hanwckf/releases/download/toolchain-v1.1/$toolchain_pkg"
 git:
   depth: 3
 deploy:
