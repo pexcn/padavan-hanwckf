@@ -24,7 +24,7 @@ jobs:
           - build_variant: "mt7620"
             targets: "MI-MINI"
           - build_variant: "mt7621"
-            targets: "K2P_nano-5.0 K2P-5.0 K2P_nano K2P"
+            targets: "K2P K2P-5.0"
     steps:
       - uses: actions/checkout@v2
       - name: Prepare environment
