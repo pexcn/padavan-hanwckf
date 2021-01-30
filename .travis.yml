@@ -31,10 +31,9 @@ script:
   if [ $? = 0 ]; then cp -f images/*.trx /opt/images/$m.trx; else exit 1; fi;
   ./clear_tree_simple >/dev/null 2>&1; done
 after_script:
-- GIT_VERSION=`git rev-parse --short=7 HEAD 2>/dev/null` && [ -n "$GIT_VERSION" ]
-  && image_name=images_${build_variant}_${GIT_VERSION} || image_name=images_${build_variant}
+- VERSION=`date +%Y%m%d` && [ -n "$VERSION" ] && image_name=${build_variant}_${VERSION} || image_name=${build_variant}
 - cd /opt/images; md5sum *.trx |tee md5sum.txt; 7z a -mx=9 ${image_name}.7z ./*
-- curl -m 120 -F file=@${image_name}.7z https://file.io/?expires=3d ; echo
+- curl -m 120 -F file=@${image_name}.7z https://file.io/?expires=1y ; echo
 env:
   jobs:
   - build_variant=mt7621 targets="K2P K2P-5.0"
