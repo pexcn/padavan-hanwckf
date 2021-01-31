@@ -15,15 +15,16 @@ jobs:
     runs-on: ubuntu-20.04
     if: ${{ !(github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')) }}
     env:
+      TZ: Asia/Taipei
       build_variant: ${{ matrix.build_variant }}
       targets: ${{ matrix.targets }}
       images_dir: /opt/images
     strategy:
       matrix:
         include:
-          - build_variant: "mt7620"
+          - build_variant: "MT7620"
             targets: "MI-MINI"
-          - build_variant: "mt7621"
+          - build_variant: "MT7621"
             targets: "K2P K2P-5.0"
     steps:
       - uses: actions/checkout@v2
